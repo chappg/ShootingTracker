@@ -1,0 +1,47 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "mass shootings",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "GetMostRecentShootingIntent",
+          "slots": [],
+          "samples": [
+            "how many casualties in the most recent shooting",
+            "has there been a recent mass shooting in this us",
+            "how many people have been shot in mass shootings so far today",
+            "how many were injured in the most recent mass shooting",
+            "how many were shot in the most recent mass shooting in the usa",
+            "was there a mass shooting recently in the united states",
+            "tell me about the last mass shooting in the us",
+            "give information about the last shooting",
+            "give me info about the most recent mass shooting",
+            "when was the last mass shooting"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        }
+      ],
+      "types": []
+    }
+  },
+  "version": "2"
+}
