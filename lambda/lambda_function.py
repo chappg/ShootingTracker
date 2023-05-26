@@ -50,16 +50,17 @@ class GetMostRecentShootingHandler(AbstractRequestHandler):
         #sources = (shootings_data[0]["sources"])
         #speech = "" +city + ", " + us_state_abbrev.us_state_abbrev[state+code]
         #speech = getDataAndReturnRecentSpeech()
-        
+
         #random_fact = data
         ##speech = data[prompts.GET_FACT_MESSAGE].format(random_fact)
 
         random_fact = random.choice(data[prompts.FACTS])
-        logger.info("random_fact: " + random_fact)
+        logger.info(f"random_fact: {random_fact}")
         #speech = data[prompts.GET_FACT_MESSAGE].format(random_fact)
-        logger.info("speech: " + speech)
-        handler_input.response_builder.speak("The most recent mass shooting in the United States was " + speech).set_card(
-            SimpleCard(data[prompts.SKILL_NAME], speech))
+        logger.info(f"speech: {speech}")
+        handler_input.response_builder.speak(
+            f"The most recent mass shooting in the United States was {speech}"
+        ).set_card(SimpleCard(data[prompts.SKILL_NAME], speech))
 
         return handler_input.response_builder.response
 
@@ -139,7 +140,7 @@ class LocalizationInterceptor(AbstractRequestInterceptor):
 
     def process(self, handler_input):
         locale = handler_input.request_envelope.request.locale
-        logger.info("Locale is {}".format(locale))
+        logger.info(f"Locale is {locale}")
 
         # localized strings stored in language_strings.json
         with open("language_strings.json") as language_prompts:
@@ -168,8 +169,9 @@ class SessionEndedRequestHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
         logger.info("In SessionEndedRequestHandler")
 
-        logger.info("Session ended reason: {}".format(
-            handler_input.request_envelope.request.reason))
+        logger.info(
+            f"Session ended reason: {handler_input.request_envelope.request.reason}"
+        )
         return handler_input.response_builder.response
 
 
@@ -200,8 +202,7 @@ class RequestLogger(AbstractRequestInterceptor):
 
     def process(self, handler_input):
         # type: (HandlerInput) -> None
-        logger.debug("Alexa Request: {}".format(
-            handler_input.request_envelope.request))
+        logger.debug(f"Alexa Request: {handler_input.request_envelope.request}")
 
 
 class ResponseLogger(AbstractResponseInterceptor):
@@ -209,7 +210,7 @@ class ResponseLogger(AbstractResponseInterceptor):
 
     def process(self, handler_input, response):
         # type: (HandlerInput, Response) -> None
-        logger.debug("Alexa Response: {}".format(response))
+        logger.debug(f"Alexa Response: {response}")
 
 
 # Register intent handlers
